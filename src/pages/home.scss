@@ -19,8 +19,30 @@
     grid-column-gap: px(28);
     grid-row-gap: px(28);
     > section {
-      border: 1px solid #6e6e6e;
-      border-radius: 4px;
+      border: 0.4px solid #000000;
+      border-radius: 1px;
+      position: relative;
+      box-shadow: 0 0 0.8px 0 #292929, inset 0 0 0.8px 0 #292929;
+      background: #fbf6f0;
+      opacity: 0.5;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        border-radius: 1px;
+        box-shadow:
+        17px 0 0 -16.6px #565656,
+        -17px 0 0 -16.6px #565656,
+        0 17px 0 -16.6px #565656,
+        0 -17px 0 -16.6px #565656,
+        7px 0 0 -6.6px #292929,
+        -7px 0 0 -6.6px #292929,
+        0 7px 0 -6.6px #292929,
+        0 -7px 0 -6.6px #292929,;
+      }
     }
     > .section1 {
       grid-area: box1;
