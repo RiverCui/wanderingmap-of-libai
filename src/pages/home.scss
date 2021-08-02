@@ -19,12 +19,11 @@
     grid-column-gap: px(28);
     grid-row-gap: px(28);
     > section {
-      border: 0.4px solid #000000;
+      border: 0.4px solid #141414;
       border-radius: 1px;
       position: relative;
-      box-shadow: 0 0 0.8px 0 #292929, inset 0 0 0.8px 0 #292929;
-      background: #fbf6f0;
-      opacity: 0.5;
+      box-shadow: 0 0 0.5px 0 #6E6E6E, inset 0 0 0.5px 0 #6E6E6E;
+      background: rgba(251, 246, 240,0.5);
       &::before {
         content: '';
         position: absolute;
@@ -34,14 +33,14 @@
         top: 0;
         border-radius: 1px;
         box-shadow:
-        17px 0 0 -16.6px #565656,
-        -17px 0 0 -16.6px #565656,
-        0 17px 0 -16.6px #565656,
-        0 -17px 0 -16.6px #565656,
-        7px 0 0 -6.6px #292929,
-        -7px 0 0 -6.6px #292929,
-        0 7px 0 -6.6px #292929,
-        0 -7px 0 -6.6px #292929,;
+        17px 0 0 -16.6px #6E6E6E,
+        -17px 0 0 -16.6px #6E6E6E,
+        0 17px 0 -16.6px #6E6E6E,
+        0 -17px 0 -16.6px #6E6E6E,
+        7px 0 0 -6.6px #3F3F3F,
+        -7px 0 0 -6.6px #3F3F3F,
+        0 7px 0 -6.6px #3F3F3F,
+        0 -7px 0 -6.6px #3F3F3F,;
       }
     }
     > .section1 {
