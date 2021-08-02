@@ -5,10 +5,12 @@
   display: flex;
   flex-direction: column;
   > header {
-    height: px(120);
+    height: px(110);
     background-size: cover;
   }
   > main {
+    padding-top: px(30);
+    background-size: cover;
     flex: 1;
     display: grid;
     grid-template:
@@ -16,26 +18,24 @@
       "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
     grid-column-gap: px(28);
     grid-row-gap: px(28);
-
+    > section {
+      border: 1px solid #6e6e6e;
+      border-radius: 4px;
+    }
     > .section1 {
       grid-area: box1;
-      background: pink;
     }
     > .section2 {
       grid-area: box2;
-      background: lightgrey;
     }
     > .section3 {
       grid-area: box3;
-      background: lightblue;
     }
     > .section4 {
       grid-area: box4;
-      background: lightcoral;
     }
     > .section5 {
       grid-area: box5;
-      background: lightyellow;
     }
   }
 }
