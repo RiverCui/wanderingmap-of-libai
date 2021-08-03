@@ -6,7 +6,8 @@
   flex-direction: column;
 
   > main {
-    padding-top: px(30);
+    padding-top: px(74);
+    padding-bottom: px(70);
     background-size: cover;
     flex: 1;
     display: grid;
@@ -20,7 +21,7 @@
     }
 
     .bordered {
-      border: 0.4px solid #BDBDBD;
+      border: 1px solid #BDBDBD;
       //border-radius: 10px;
       position: relative;
       box-shadow: 0 0 0.5px 0 #6E6E6E, inset 0 0 0.5px 0 #6E6E6E;
@@ -33,19 +34,22 @@
         bottom: 0;
         top: 0;
         //border-radius: 10px;
-        box-shadow: 17px 0 0 -16.6px #6E6E6E,
-        -17px 0 0 -16.6px #6E6E6E,
-        0 17px 0 -16.6px #6E6E6E,
-        0 -17px 0 -16.6px #6E6E6E,
-        7px 0 0 -6.6px #3F3F3F,
-        -7px 0 0 -6.6px #3F3F3F,
-        0 7px 0 -6.6px #3F3F3F,
-        0 -7px 0 -6.6px #3F3F3F,;
+        box-shadow: 17px 0 0 -16px #6E6E6E,
+        -17px 0 0 -16px #6E6E6E,
+        0 17px 0 -16px #6E6E6E,
+        0 -17px 0 -16px #6E6E6E,
+        7px 0 0 -6px #565656,
+        -7px 0 0 -6px #565656,
+        0 7px 0 -6px #565656,
+        0 -7px 0 -6px #565656,;
       }
     }
 
     > .section1 {
       grid-area: box1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     > .section2 {
@@ -56,16 +60,8 @@
       grid-area: box3;
     }
 
-    > .section4 {
-      grid-area: box4;
-    }
-
-    > .section5 {
-      grid-area: box5;
-    }
-
-    .地 {
-      height: px(315);
+    .地,.城,.诗 {
+      height: px(434);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -78,16 +74,11 @@
     }
 
     .城 {
-      height: px(315);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      height: px(370);
+    }
 
-      .chart {
-        background-size: 100%;
-        flex: 1;
-        width: 100%;
-      }
+    .诗 {
+      height: px(382);
     }
   }
 }
