@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import './home.scss';
-import headerBg from '../images/header.png';
-import mainBg from '../images/main.png';
+import mainBg from '../images/back.png';
 import subTitle from '../images/box1.png';
 import * as echarts from 'echarts';
 
@@ -149,7 +148,6 @@ export const Home = () => {
   },[])
   return (
     <div className="home">
-      <header style={{backgroundImage: `url(${headerBg})`}}/>
       <main style={{backgroundImage: `url(${mainBg})`}}>
         <section className="section1">
           <div className="bordered 管辖统计">
