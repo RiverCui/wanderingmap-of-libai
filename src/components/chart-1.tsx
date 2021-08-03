@@ -9,25 +9,15 @@ export const Chart1 = () => {
   const divRef = useRef(null);
   useEffect(() => {
     var myChart = echarts.init(divRef.current);
-    var valueList = [1, 5, 2 ,7, 3, 12];
     myChart.setOption(createEchartsOptions({
       ...baseEchartsOptions,
-      visualMap: {
-        show: false,
-        type: 'continuous',
-        seriesIndex: 1,
-        dimension: 0,
-        min: 0,
-        max: valueList.length - 1
-      },
-
       legend: [{
         data: [ '到过的城市' ],
         icon: 'circle',
         itemHeight: px(10),
         itemWidth: px(10),
-        top: px(10),
-        left: px(10),
+        top: px(20),
+        left: px(20),
         textStyle: {
           color: '#fff',
           fontSize: px(12)
@@ -37,11 +27,8 @@ export const Chart1 = () => {
           data: [ '到过的省份' ],
           itemHeight: px(10),
           itemWidth: px(20),
-          top: px(10),
-          left: px(100),
-          itemStyle: {
-            color: '#964215',
-          },
+          top: px(20),
+          left: px(120),
           textStyle: {
             color: '#fff',
             fontSize: px(12)
@@ -116,17 +103,30 @@ export const Chart1 = () => {
           data: [2, 7, 30, 38, 50, 73],
           color: '#fcfaf2',
           barWidth: px(10),
+          itemStyle: {
+            normal: { barBorderRadius: 20 }
+          }
         },
         {
           name: '到过的省份',
           type: 'line',
-          yAxisIndex: 1,
-          data: valueList,
+          yAxisIndex: 1, // 指定y轴
+          data: [1, 5, 2 ,7, 3, 12],
           smooth: true,
           symbol: 'circle',
           symbolSize: px(6),
-          lineStyle: {
-            width: px(1.8)
+          color: '#fc0274',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: px(1.5),
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  offset: 0, color: '#fc0274'
+                },{
+                  offset: 1, color: '#c61aff'
+                }])
+              }
+            }
           }
         }
       ]
