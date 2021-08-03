@@ -5,7 +5,7 @@ import {px} from '../shared/px';
 import {baseEchartsOptions} from '../shared/base-echarts-options';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 
-export const Chart1 = () => {
+export const Chart2 = () => {
   const divRef = useRef(null);
   useEffect(() => {
     var myChart = echarts.init(divRef.current);
@@ -133,8 +133,8 @@ export const Chart1 = () => {
     }))
   },[])
   return(
-    <div className="bordered 地">
+    <div className="bordered 城">
       <div style={{backgroundImage: `url(${subTitle})`}} ref={divRef} className="chart"></div>
     </div>
   )
-  }
+}
