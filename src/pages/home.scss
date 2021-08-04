@@ -6,8 +6,12 @@
   flex-direction: column;
 
   > main {
+    width: px(2420);
+    margin: 0 auto;
     padding-top: px(74);
     padding-bottom: px(70);
+    padding-left: px(70);
+    padding-right: px(70);
     background-size: cover;
     flex: 1;
     display: grid;
@@ -54,18 +58,23 @@
 
     > .section2 {
       grid-area: box2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     > .section3 {
       grid-area: box3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .地,.城,.诗 {
+    .地, .城, .诗, .流浪地图 {
       height: px(434);
       display: flex;
       flex-direction: column;
       align-items: center;
-
       .chart {
         background-size: 100%;
         flex: 1;
@@ -78,6 +87,52 @@
     }
 
     .诗 {
+      height: px(382);
+    }
+
+
+    .流浪地图 {
+      height: px(820);
+    }
+    .charts {
+      width: px(1133);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .水,.木 {
+        display: flex;
+        width: px(557);
+        height: px(382);
+        .chart {
+          background-size: 100%;
+          flex: 1;
+          width: 100%;
+        }
+      }
+    }
+
+    .人, .公, .土 {
+      height: px(434);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .chart {
+        background-size: 100%;
+        flex: 1;
+        width: 100%;
+      }
+    }
+
+    .人 {
+      height: px(434);
+    }
+
+    .公 {
+      height: px(370);
+    }
+
+    .土 {
       height: px(382);
     }
   }

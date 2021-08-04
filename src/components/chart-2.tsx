@@ -131,7 +131,7 @@ export const Chart2 = () => {
         }
       ]
     }))
-  },[])
+  },[]);
   return(
     <div className="bordered 城">
       <div style={{backgroundImage: `url(${subTitle})`}} ref={divRef} className="chart"></div>
