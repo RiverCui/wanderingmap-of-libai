@@ -8,10 +8,7 @@
   > main {
     width: px(2420);
     margin: 0 auto;
-    padding-top: px(74);
-    padding-bottom: px(70);
-    padding-left: px(70);
-    padding-right: px(70);
+    padding: px(74) px(70) px(70) px(70);
     background-size: cover;
     flex: 1;
     display: grid;

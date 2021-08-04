@@ -20,14 +20,14 @@ export const Home = () => {
           <Chart2/>
           <Chart3/>
         </section>
-        <section className="bordered section2">
+        <section className="section2">
           <Chart4/>
           <div className="charts">
               <Chart5/>
               <Chart6/>
           </div>
         </section>
-        <section className="bordered section3">
+        <section className="section3">
           <Chart7/>
           <Chart8/>
           <Chart9/>
