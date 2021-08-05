@@ -1,9 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import subTitle from '../images/box1.png';
 import * as echarts from 'echarts';
-import {px} from '../shared/px';
-import {baseEchartsOptions} from '../shared/base-echarts-options';
-import {createEchartsOptions} from '../shared/create-echarts-options';
 
 export const Chart1 = () => {
   const divRef = useRef(null);
