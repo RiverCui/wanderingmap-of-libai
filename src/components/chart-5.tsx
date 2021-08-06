@@ -14,7 +14,7 @@ export const Chart5 = () => {
       xAxis: {show: false},
       yAxis: {show: false},
       legend: {
-        data: [ '成就' ],
+        data: [ '能力' ],
         icon: 'circle',
         itemHeight: px(10),
         itemWidth: px(10),
@@ -52,7 +52,7 @@ export const Chart5 = () => {
         },
       },
       series: [{
-        name: '成就',
+        name: '能力',
         type: 'radar',
         data: [[85, 57, 72, 41, 50]],
         color: '#34b56f',
