@@ -33,7 +33,6 @@ export const Chart5 = () => {
           { name: '书法', max: 100},
           { name: '剑术', max: 100},
         ],
-        radius: 120,
         center: ['50%', '60%'],
         splitLine: {
           lineStyle: {
