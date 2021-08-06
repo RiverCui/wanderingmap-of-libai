@@ -77,7 +77,7 @@ export const Chart1 = () => {
         itemStyle: {
           borderColor: '#12123b',
           borderRadius: 60,
-          borderWidth: 6
+          borderWidth: px(6)
         },
         label: {
           show: 'radial'
