@@ -93,7 +93,7 @@ export const Chart1 = () => {
             }
           },{
             itemStyle: {
-              color: '#91989f'
+              color: '#fff'
             },
             label: {
               color: '#12123b'
