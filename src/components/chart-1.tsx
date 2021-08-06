@@ -82,7 +82,7 @@ export const Chart1 = () => {
           borderWidth: px(6)
         },
         label: {
-          show: 'radial'
+          show: false
         },
         levels: [
           {},

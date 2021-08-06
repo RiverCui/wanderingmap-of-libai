@@ -195,6 +195,7 @@ export const Chart4 = () => {
           type: 'scatter',
           coordinateSystem: 'geo',
           data: convertData(data),
+          color: '#5dac81',
           symbolSize: function (val) {
             return val[2] / 0.2;
           },
