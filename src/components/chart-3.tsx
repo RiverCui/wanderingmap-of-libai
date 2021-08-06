@@ -12,7 +12,7 @@ export const Chart3 = () => {
     myChart.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       legend: {
-        data: ['月', '酒', '水'],
+        data: ['月', '酒', '剑'],
         icon: 'circle',
         itemHeight: px(10),
         itemWidth: px(10),
@@ -45,7 +45,7 @@ export const Chart3 = () => {
         },
       },
       series: [{
-        name: '酒',
+        name: '剑',
         data: [2, 20, 13, 23, 14, 26],
         type: 'line',
         smooth: true,
@@ -61,7 +61,7 @@ export const Chart3 = () => {
         areaStyle: {},
         showSymbol: false,
       },{
-        name: '水',
+        name: '酒',
         data: [13, 16, 24, 45, 17, 11],
         type: 'line',
         smooth: true,
