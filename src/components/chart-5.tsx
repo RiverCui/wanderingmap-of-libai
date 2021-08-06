@@ -33,7 +33,8 @@ export const Chart5 = () => {
           { name: '书法', max: 100},
           { name: '剑术', max: 100},
         ],
-        center: ['50%', '60%'],
+        center: ['50%', '55%'],
+        radius: '70%',
         splitLine: {
           lineStyle: {
             color: '#91989f',

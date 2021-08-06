@@ -69,6 +69,8 @@ export const Chart1 = () => {
           fontSize: px(12)
         }
       },
+      center: ['50%', '55%'],
+      radius: '70%',
       series: {
         name: '城市',
         type: 'sunburst',
@@ -93,7 +95,7 @@ export const Chart1 = () => {
             }
           },{
             itemStyle: {
-              color: '#fff'
+              color: '#fcfaf2'
             },
             label: {
               color: '#12123b'
