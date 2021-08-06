@@ -116,6 +116,11 @@ export const Chart2 = () => {
           data: [2, 7, 30, 38, 50, 73],
           color: '#fcfaf2',
           barWidth: px(10),
+          itemStyle: {
+            normal: {
+              barBorderRadius: px(8),
+            }
+          }
         },
         {
           name: '到过的省份',
