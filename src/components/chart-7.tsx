@@ -11,6 +11,18 @@ export const Chart7 = () => {
     var myChart = echarts.init(divRef.current);
     myChart.setOption(createEchartsOptions({
       ...baseEchartsOptions,
+      legend: {
+        data: ['友情'],
+        icon: 'circle',
+        itemHeight: px(10),
+        itemWidth: px(10),
+        top: px(10),
+        left: px(10),
+        textStyle: {
+          color: '#fff',
+          fontSize: px(12)
+        }
+      },
       grid: {
         x: px(50),
         y: px(135),
@@ -46,6 +58,7 @@ export const Chart7 = () => {
         },
       },
       series: [{
+        name: '友情',
         type: 'pictorialBar', //设置类型为象形柱状图
         symbol: 'roundRect', //图形类型，带圆角的矩形
         barWidth: '5%', //柱图宽度
@@ -54,12 +67,19 @@ export const Chart7 = () => {
         symbolMargin: px(4), //图形垂直间隔
         itemStyle: {
           normal: {
-            color: '#61b488',
+            color: new echarts.graphic.LinearGradient(
+              0, 0, 1, 0,
+              [
+                {offset: 0, color: '#fcfaf2'},
+                {offset: 0.5, color: '#add5ba'},
+                {offset: 1, color: '#5eaf82'}
+              ]
+            )
           }
         },
         z: 1,
         symbolRepeat: true, //图形是否重复
-        symbolSize: [10, 12], //图形元素的尺寸
+        symbolSize: [px(10), px(15)], //图形元素的尺寸
         data: [13, 7, 9, 11, 6],
       }]
     }))
