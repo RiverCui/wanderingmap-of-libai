@@ -9,59 +9,17 @@ export const Chart1 = () => {
   const divRef = useRef(null);
   useEffect(() => {
     var myChart = echarts.init(divRef.current);
-    var data = [{
-      name: '华东',
-      value: 100,
-      children: [{
-        name: '山东',
-        value: 30,
-        children: [{
-          name: '济宁',
-          value: 50
-        }]
-      }, {
-        name: '安徽',
-        value: 25,
-      },{
-        name: '江苏',
-        value: 25,
-      },{
-        name: '江西',
-        value: 20,
-      }]
-    },{
-      name: '华中',
-      value: 30,
-      children: [{
-        name: '河南',
-        value: 20,
-        children: [{
-          name: '洛阳',
-          value: 10,
-        }]
-      }, {
-        name: '湖北',
-        value: 10,
-      }]
-    },{
-      name: '西南',
-      value: 25,
-        children: [{
-        name: '四川',
-        value: 25,
-      }]
-    }
-    ];
     myChart.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       xAxis: {show: false},
       yAxis: {show: false},
-      color: ['#5dac81'],
+      color: ['#5dac81','#78c89b','#93e4b6','#afffd2','#cbffee','#e8ffff'],
       legend: {
-        data: ['城市'],
+        data: ['华东','华南','华北','西南','西北','东北'],
         icon: 'circle',
         itemHeight: px(10),
         itemWidth: px(10),
+        width: px(10),
         top: px(10),
         left: px(10),
         textStyle: {
@@ -69,47 +27,33 @@ export const Chart1 = () => {
           fontSize: px(12)
         }
       },
-      center: ['50%', '55%'],
-      radius: '70%',
-      series: {
-        name: '城市',
-        type: 'sunburst',
-        data: data,
-        radius: [60, '70%'],
-        itemStyle: {
-          borderColor: '#12123b',
-          borderRadius: 60,
-          borderWidth: px(6)
-        },
-        label: {
-          show: false
-        },
-        levels: [
-          {},
-          {
-            itemStyle: {
-              color: '#a9a9a8'
-            },
-            label: {
-              color: '#12123b'
-            }
-          },{
-            itemStyle: {
-              color: '#fcfaf2'
-            },
-            label: {
-              color: '#12123b'
-            }
-          },{
+      tooltip: {
+        trigger: 'item'
+      },
+      series: [
+        {
+          name: '占比',
+          type: 'pie',
+          max: 15,
+          center: ['50%', '55%'],
+          radius: [px(50),px(140)],
+          roseType: 'area',
+          label: true,
           itemStyle: {
-            color: '#5dac81'
+            borderRadius: px(15),
+            borderColor: '#12123b',
+            borderWidth: px(3)
           },
-            label: {
-              color: '#12123b'
-            }
-          }
-        ]
-      }
+          data: [
+            {value: 15, name: '华东'},
+            {value: 14, name: '华南'},
+            {value: 13, name: '华北'},
+            {value: 12, name: '西南'},
+            {value: 11, name: '西北'},
+            {value: 10, name: '东北'},
+          ]
+        }
+      ]
     }))
   }, []);
 

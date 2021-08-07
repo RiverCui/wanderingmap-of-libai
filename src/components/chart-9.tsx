@@ -33,17 +33,6 @@ export const Chart9 = () => {
           fontSize: px(12)
         }
       },
-      toolbox: {
-        feature: {
-          magicType: {
-            type: ['stack', 'tiled']
-          },
-          dataView: {},
-          saveAsImage: {
-            pixelRatio: 2
-          }
-        }
-      },
       tooltip: {},
       xAxis: {
         data: xAxisData,
