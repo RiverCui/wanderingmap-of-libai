@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from 'react';
-import subTitle from '../images/box1.png';
+import subTitle9 from '../images/chart9.png';
 import * as echarts from 'echarts';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 import {px} from '../shared/px';
@@ -97,7 +97,7 @@ export const Chart9 = () => {
   }, []);
   return (
     <div className="bordered 土">
-      <div style={{backgroundImage: `url(${subTitle})`}} ref={divRef} className="chart"></div>
+      <div style={{backgroundImage: `url(${subTitle9})`}} ref={divRef} className="chart"></div>
     </div>
   );
 };

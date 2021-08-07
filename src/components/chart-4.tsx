@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import * as echarts from 'echarts';
-import subTitle from '../images/box1.png';
+import subTitle4 from '../images/chart4.png';
 import china from '../geo/chinaChange.json';
 import {createEchartsOptions} from '../shared/create-echarts-options';
 import {px} from '../shared/px';
@@ -218,7 +218,7 @@ export const Chart4 = () => {
   }, []);
   return (
     <div className="bordered 流浪地图">
-        <div style={{backgroundImage: `url(${subTitle})`}} ref={divRef} className="chart"></div>
+        <div style={{backgroundImage: `url(${subTitle4})`}} ref={divRef} className="chart"></div>
     </div>
   );
 };
