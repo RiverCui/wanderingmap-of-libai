@@ -7,9 +7,32 @@ import {px} from '../shared/px';
 
 export const Chart1 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {value: 15, name: '华东'},
+    {value: 14, name: '华南'},
+    {value: 13, name: '华北'},
+    {value: 12, name: '西南'},
+    {value: 11, name: '西北'},
+    {value: 10, name: '东北'},
+  ]
+
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+    setInterval(() => {
+      const newData = [
+        {value: 2 + Math.round(Math.random() * 15), name: '华东'},
+        {value: 2 + Math.round(Math.random() * 15), name: '华南'},
+        {value: 2 + Math.round(Math.random() * 15), name: '华北'},
+        {value: 2 + Math.round(Math.random() * 15), name: '西南'},
+        {value: 2 + Math.round(Math.random() * 15), name: '西北'},
+        {value: 2 + Math.round(Math.random() * 15), name: '东北'},
+      ];
+      x(newData)
+    },1000)
+  },[])
+
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       xAxis: {show: false},
       yAxis: {show: false},
@@ -44,17 +67,15 @@ export const Chart1 = () => {
             borderColor: '#12123b',
             borderWidth: px(3)
           },
-          data: [
-            {value: 15, name: '华东'},
-            {value: 14, name: '华南'},
-            {value: 13, name: '华北'},
-            {value: 12, name: '西南'},
-            {value: 11, name: '西北'},
-            {value: 10, name: '东北'},
-          ]
+          data: data
         }
       ]
     }))
+  }
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data)
   }, []);
 
   return(
