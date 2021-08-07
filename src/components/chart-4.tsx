@@ -218,7 +218,10 @@ export const Chart4 = () => {
   }, []);
   return (
     <div className="bordered 流浪地图">
+      <div className="wrapper">
         <div style={{backgroundImage: `url(${subTitle4})`}} ref={divRef} className="chart"></div>
+        <div className="notes">此地图仅显示中国部分区域</div>
+      </div>
     </div>
   );
 };

@@ -91,6 +91,20 @@
     .流浪地图 {
       height: px(820);
       background: transparent;
+      > .wrapper {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .notes{
+          position: absolute;
+          color: #bdbdbd;
+          top: px(10);
+          right: px(10);
+          font-size: px(12);
+        }
+      }
     }
     .charts {
       width: px(1133);
