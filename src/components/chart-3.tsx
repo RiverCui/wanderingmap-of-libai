@@ -50,7 +50,10 @@ export const Chart3 = () => {
         type: 'line',
         smooth: true,
         color: '#ff027b',
-        areaStyle: {},
+        areaStyle: {
+          color: '#ff027b',
+          opacity: 0.5
+        },
         showSymbol: false,
       }, {
         name: '月',
@@ -58,7 +61,10 @@ export const Chart3 = () => {
         type: 'line',
         smooth: true,
         color: '#0581f4',
-        areaStyle: {},
+        areaStyle: {
+          color: '#0581f4',
+          opacity: 0.5
+        },
         showSymbol: false,
       },{
         name: '酒',
@@ -66,7 +72,10 @@ export const Chart3 = () => {
         type: 'line',
         smooth: true,
         color: '#34b56f',
-        areaStyle: {},
+        areaStyle: {
+          color: '#34b56f',
+          opacity: 0.5
+        },
         showSymbol: false,
       },]
     }))
