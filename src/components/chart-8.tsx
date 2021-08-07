@@ -7,9 +7,34 @@ import {px} from '../shared/px';
 
 export const Chart8 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {city: '池州', 1: 44},
+    {city: '济宁', 1: 54},
+    {city: '九江', 1: 58},
+    {city: '马鞍山', 1: 39},
+    {city: '南京', 1: 89},
+    {city: '武汉', 1: 46},
+    {city: '宣城', 1: 58},
+  ];
+
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+    setInterval(() => {
+      const newData = [
+        {city: '池州', 1: 20 + Math.round(Math.random() * 60)},
+        {city: '济宁', 1: 20 + Math.round(Math.random() * 60)},
+        {city: '九江', 1: 20 + Math.round(Math.random() * 60)},
+        {city: '马鞍山', 1: 20 + Math.round(Math.random() * 60)},
+        {city: '南京', 1: 20 + Math.round(Math.random() * 60)},
+        {city: '武汉', 1: 20 + Math.round(Math.random() * 60)},
+        {city: '宣城', 1: 20 + Math.round(Math.random() * 60)},
+      ];
+      x(newData)
+    },1000)
+  },[]);
+
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       legend: [{
         data: ['作诗数'],
@@ -27,7 +52,7 @@ export const Chart8 = () => {
       xAxis: {
         position: 'top',
         type: 'category',
-        data: ['池州', '济宁', '九江', '马鞍山', '南京', '武汉', '宣城'],
+        data: data.map(i => i.city),
         axisTick: {show: false},
         axisLine: {
           lineStyle: {
@@ -40,6 +65,8 @@ export const Chart8 = () => {
       yAxis: {
         inverse: true,
         type: 'value',
+        min: 0,
+        max: 100,
         splitLine: {
           lineStyle: {
             color: '#91989f',
@@ -49,7 +76,7 @@ export const Chart8 = () => {
       },
       series: [{
         name: '作诗数',
-        data: [44, 54, 58, 39, 89, 46, 58],
+        data: data.map(i => i[1]),
         type: 'bar',
         barWidth: px(10),
         label: {
@@ -73,6 +100,12 @@ export const Chart8 = () => {
         }
       }]
     }));
+  }
+
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data)
   }, []);
   return (
     <div className="bordered 公">

@@ -20,15 +20,15 @@ export const Chart2 = () => {
   useEffect(() => {
       setInterval(() => {
       const newData = [
-        {age: '10岁', city: Math.random() * 10, province: Math.random() * 3},
-        {age: '20岁', city: Math.random() * 20, province: Math.random() * 6},
-        {age: '30岁', city: Math.random() * 40, province: Math.random() * 9},
-        {age: '40岁', city: Math.random() * 50, province: Math.random() * 12},
-        {age: '50岁', city: Math.random() * 60, province: Math.random() * 15},
-        {age: '60岁', city: Math.random() * 80, province: Math.random() * 18},
+        {age: '10岁', city: 2+Math.random() * 20, province: 1+Math.random() * 10},
+        {age: '20岁', city: 7+Math.random() * 20, province: 5+Math.random() * 10},
+        {age: '30岁', city: 30+Math.random() * 20, province: 2+Math.random() * 10},
+        {age: '40岁', city: 38+Math.random() * 20, province: 7+Math.random() * 10},
+        {age: '50岁', city: 50+Math.random() * 20, province: 3+Math.random() * 10},
+        {age: '60岁', city: 60+Math.random() * 20, province: 12+Math.random() * 10},
       ];
       x(newData);
-    }, 3000);
+    }, 1000);
   }, []);
 
   const x = (data) => {

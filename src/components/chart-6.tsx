@@ -7,9 +7,26 @@ import {px} from '../shared/px';
 
 export const Chart6 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {name: '政绩', 1:0, 2:1, 3:0},
+    {name: '政绩', 1:0, 2:0, 3:2},
+    {name: '文学', 1:3, 2:0, 3:0},
+  ]
+
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+    setInterval(() => {
+      const newData = [
+        {name: '政绩', 1:0, 2:Math.random() * 5, 3:0},
+        {name: '政绩', 1:0, 2:0, 3:Math.random() * 5},
+        {name: '文学', 1:Math.random() * 5, 2:0, 3:0},
+      ];
+      x(newData)
+    },1000)
+  },[])
+
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       xAxis: {show: false},
       yAxis: {show: false},
@@ -27,21 +44,21 @@ export const Chart6 = () => {
       },
       angleAxis: {
         max: 4,
-          axisLine: {show: false},
-          axisTick: false,
-          axisLabel: false,
-          splitLine: {
-            show: false
-          },
+        axisLine: {show: false},
+        axisTick: false,
+        axisLabel: false,
+        splitLine: {
+          show: false
+        },
       },
       radiusAxis: {
         type: 'category',
-        data: ['周一', '周二', '周三'],
+        data: ['政绩', '政绩', '文学'],
         z: 10,
-          axisLine: {show: false},
-          axisLabel: false,
-          axisTick: false,
-          min: -2
+        axisLine: {show: false},
+        axisLabel: false,
+        axisTick: false,
+        min: -2
       },
       polar: {
         center: ['50%', '55%'],
@@ -50,7 +67,7 @@ export const Chart6 = () => {
       },
       series: [{
         type: 'bar',
-        data: [0, 0, 3],
+        data: data.map(i=>i[1]),
         coordinateSystem: 'polar',
         name: '文学',
         roundCap: true,
@@ -63,7 +80,7 @@ export const Chart6 = () => {
         }
       }, {
         type: 'bar',
-        data: [1, 0, 0],
+        data: data.map(i=>i[2]),
         coordinateSystem: 'polar',
         name: '政绩',
         roundCap: true,
@@ -76,13 +93,13 @@ export const Chart6 = () => {
         }
       }, {
         type: 'bar',
-        data: [0, 2, 0],
+        data: data.map(i=>i[3]),
         coordinateSystem: 'polar',
         name: '政绩',
         roundCap: true,
         stack: 'a',
         itemStyle: {
-              color: '#5dac81',
+          color: '#5dac81',
         },
         showBackground: true,
         emphasis: {
@@ -90,6 +107,11 @@ export const Chart6 = () => {
         }
       }],
     }))
+  }
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data)
   }, []);
   return(
     <div className="bordered 木">

@@ -7,9 +7,30 @@ import {px} from '../shared/px';
 
 export const Chart7 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {name: '孟浩然', 1:13},
+    {name: '杜甫', 1:7},
+    {name: '贺知章', 1:9},
+    {name: '汪伦', 1:11},
+    {name: '崔成甫', 1:6},
+  ]
+
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+    setInterval(() => {
+      const newData = [
+        {name: '孟浩然', 1:Math.random() * 15},
+        {name: '杜甫', 1:Math.random() * 15},
+        {name: '贺知章', 1:Math.random() * 15},
+        {name: '汪伦', 1:Math.random() * 15},
+        {name: '崔成甫', 1:Math.random() * 15},
+      ]
+      x(newData)
+    },1000)
+  },[])
+
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       legend: {
         data: ['友情'],
@@ -30,7 +51,7 @@ export const Chart7 = () => {
         y2: px(50),
       },
       yAxis: {
-        data: ['孟浩然', '杜甫', '贺知章', '汪伦','崔成甫'],
+        data: data.map(i=>i.name),
         axisLabel:{
           interval: 0,
           formatter: function (value) {
@@ -80,9 +101,14 @@ export const Chart7 = () => {
         z: 1,
         symbolRepeat: true, //图形是否重复
         symbolSize: [px(10), px(15)], //图形元素的尺寸
-        data: [13, 7, 9, 11, 6],
+        data: data.map(i=>i[1]),
       }]
     }))
+  }
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data)
   }, []);
   return(
     <div className="bordered 人">

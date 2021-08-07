@@ -20,15 +20,15 @@ export const Chart3 = () => {
   useEffect(() => {
     setInterval(() => {
       const newData = [
-        {age: '10岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
-        {age: '20岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
-        {age: '30岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
-        {age: '40岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
-        {age: '50岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
-        {age: '60岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+        {age: '10岁', 1: 2 + Math.random() * 15, 2: 10 + Math.random() * 10, 3: 13+Math.random() * 10},
+        {age: '20岁', 1: 20 + Math.random() * 15, 2: 18 + Math.random() * 10, 3: 16+Math.random() * 10},
+        {age: '30岁', 1: 13 + Math.random() * 15, 2: 39 + Math.random() * 10, 3: 24+Math.random() * 10},
+        {age: '40岁', 1: 23 + Math.random() * 15, 2: 17 + Math.random() * 10, 3: 35+Math.random() * 10},
+        {age: '50岁', 1: 14 + Math.random() * 15, 2: 26 + Math.random() * 10, 3: 17+Math.random() * 10},
+        {age: '60岁', 1: 26 + Math.random() * 15, 2: 18 + Math.random() * 10, 3: 11+Math.random() * 10},
       ];
       x(newData);
-    }, 3000);
+    }, 1000);
   }, []);
 
   const x = (data) => {
