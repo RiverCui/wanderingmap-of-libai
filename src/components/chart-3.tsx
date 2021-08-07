@@ -7,12 +7,34 @@ import {px} from '../shared/px';
 
 export const Chart3 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {age: '10岁', 1: 2, 2: 10, 3: 13},
+    {age: '20岁', 1: 20, 2: 18, 3: 16},
+    {age: '30岁', 1: 13, 2: 39, 3: 24},
+    {age: '40岁', 1: 23, 2: 17, 3: 45},
+    {age: '50岁', 1: 14, 2: 26, 3: 17},
+    {age: '60岁', 1: 26, 2: 18, 3: 11},
+  ];
+
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    myChart.setOption(createEchartsOptions({
+    setInterval(() => {
+      const newData = [
+        {age: '10岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+        {age: '20岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+        {age: '30岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+        {age: '40岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+        {age: '50岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+        {age: '60岁', 1: Math.random() * 50, 2: Math.random() * 50, 3: Math.random() * 50},
+      ];
+      x(newData);
+    }, 3000);
+  }, []);
+
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       legend: {
-        data: ['月', '酒', '剑'],
         icon: 'circle',
         itemHeight: px(10),
         itemWidth: px(10),
@@ -26,7 +48,7 @@ export const Chart3 = () => {
       xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: ['10岁', '20岁', '30岁', '40岁', '50岁', '60岁'],
+        data: data.map(i=>i.age),
         axisTick: {show: false},
         axisLine: {
           lineStyle: {
@@ -37,6 +59,8 @@ export const Chart3 = () => {
       },
       yAxis: {
         type: 'value',
+        min: 0,
+        max: 50,
         splitLine: {
           lineStyle: {
             color: '#91989f',
@@ -46,7 +70,7 @@ export const Chart3 = () => {
       },
       series: [{
         name: '剑',
-        data: [2, 20, 13, 23, 14, 26],
+        data: data.map(i=>i[1]),
         type: 'line',
         smooth: true,
         color: '#ff027b',
@@ -57,7 +81,7 @@ export const Chart3 = () => {
         showSymbol: false,
       }, {
         name: '月',
-        data: [10, 18, 39, 17, 26, 18],
+        data: data.map(i=>i[2]),
         type: 'line',
         smooth: true,
         color: '#0581f4',
@@ -68,7 +92,7 @@ export const Chart3 = () => {
         showSymbol: false,
       },{
         name: '酒',
-        data: [13, 16, 24, 45, 17, 11],
+        data: data.map(i=>i[3]),
         type: 'line',
         smooth: true,
         color: '#34b56f',
@@ -79,6 +103,11 @@ export const Chart3 = () => {
         showSymbol: false,
       },]
     }))
+  }
+
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data)
   }, []);
   return(
     <div className="bordered 诗">

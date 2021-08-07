@@ -7,22 +7,35 @@ import {createEchartsOptions} from '../shared/create-echarts-options';
 
 export const Chart2 = () => {
   const divRef = useRef(null);
+  const myChart = useRef(null);
+  const data = [
+    {age: '10岁', city: 2, province: 1},
+    {age: '20岁', city: 7, province: 5},
+    {age: '30岁', city: 30, province: 2},
+    {age: '40岁', city: 38, province: 7},
+    {age: '50岁', city: 50, province: 3},
+    {age: '60岁', city: 73, province: 12},
+  ];
+
   useEffect(() => {
-    var myChart = echarts.init(divRef.current);
-    var valueList = [1, 5, 2 ,7, 3, 12];
-    myChart.setOption(createEchartsOptions({
+      setInterval(() => {
+      const newData = [
+        {age: '10岁', city: Math.random() * 10, province: Math.random() * 3},
+        {age: '20岁', city: Math.random() * 20, province: Math.random() * 6},
+        {age: '30岁', city: Math.random() * 40, province: Math.random() * 9},
+        {age: '40岁', city: Math.random() * 50, province: Math.random() * 12},
+        {age: '50岁', city: Math.random() * 60, province: Math.random() * 15},
+        {age: '60岁', city: Math.random() * 80, province: Math.random() * 18},
+      ];
+      x(newData);
+    }, 3000);
+  }, []);
+
+  const x = (data) => {
+    myChart.current.setOption(createEchartsOptions({
       ...baseEchartsOptions,
-      visualMap: {
-        show: false,
-        type: 'continuous',
-        seriesIndex: 1,
-        dimension: 0,
-        min: 0,
-        max: valueList.length - 1
-      },
 
       legend: [{
-        data: [ '到过的城市' ],
         icon: 'circle',
         itemHeight: px(10),
         itemWidth: px(10),
@@ -32,27 +45,13 @@ export const Chart2 = () => {
           color: '#fff',
           fontSize: px(12)
         }
-      },
-        {
-          data: [ '到过的省份' ],
-          itemHeight: px(10),
-          itemWidth: px(20),
-          top: px(10),
-          left: px(100),
-          itemStyle: {
-            color: '#964215',
-          },
-          textStyle: {
-            color: '#fff',
-            fontSize: px(12)
-          }
-        },
+      }
       ],
 
       xAxis: [
         {
           type: 'category',
-          data: [ '10岁' , '20岁', '30岁', '40岁', '50岁', '60岁' ],
+          data: data.map(i => i.age),
           axisTick: {show: false},
           axisLine: {
             lineStyle: {
@@ -113,7 +112,7 @@ export const Chart2 = () => {
         {
           name: '到过的城市',
           type: 'bar',
-          data: [2, 7, 30, 38, 50, 73],
+          data: data.map(i => i.city),
           color: '#fcfaf2',
           barWidth: px(10),
           itemStyle: {
@@ -126,17 +125,33 @@ export const Chart2 = () => {
           name: '到过的省份',
           type: 'line',
           yAxisIndex: 1,
-          data: valueList,
+          data: data.map(i => i.province),
           smooth: true,
           symbol: 'circle',
           symbolSize: px(6),
           lineStyle: {
             width: px(1.8)
-          }
+          },
+          itemStyle: {
+            normal: {
+              color: new echarts.graphic.LinearGradient(
+                1, 0, 0, 0,
+                [
+                  {offset: 0, color: '#ea0577'},
+                  {offset: 1, color: '#ca1dfe'}
+                ]
+              )
+            }
+          },
         }
       ]
     }))
+  }
+  useEffect(() => {
+    myChart.current = echarts.init(divRef.current);
+    x(data)
   },[]);
+
   return(
     <div className="bordered 城">
       <div style={{backgroundImage: `url(${subTitle2})`}} ref={divRef} className="chart"></div>
