@@ -88,14 +88,7 @@ export const Chart7 = () => {
         symbolMargin: px(4), //图形垂直间隔
         itemStyle: {
           normal: {
-            color: new echarts.graphic.LinearGradient(
-              0, 0, 1, 0,
-              [
-                {offset: 0, color: '#fcfaf2'},
-                {offset: 0.5, color: '#add5ba'},
-                {offset: 1, color: '#5eaf82'}
-              ]
-            )
+            color: '#fcfaf2'
           }
         },
         z: 1,
