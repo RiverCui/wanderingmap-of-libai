@@ -50,9 +50,6 @@ export const Chart1 = () => {
           fontSize: px(12)
         }
       },
-      tooltip: {
-        trigger: 'item'
-      },
       series: [
         {
           name: '占比',

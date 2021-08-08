@@ -14,8 +14,8 @@
     display: grid;
     grid-template:
       "box1 box2 box3" 1219fr / 557fr 1133fr 557fr;
-    grid-column-gap: px(28);
-    grid-row-gap: px(28);
+    grid-column-gap: px(19);
+    grid-row-gap: px(19);
 
     > section {
       text-align: center
@@ -78,7 +78,6 @@
         width: 100%;
       }
     }
-
     .城 {
       height: px(370);
     }
